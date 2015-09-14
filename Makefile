@@ -7,12 +7,8 @@ VERSION := 0.02
 DISTDIR := lua-subprocess-$(VERSION)
 DISTFILES := Makefile $(SOURCES) liolib-copy.h subprocess.txt subprocess.html
 
-lua_package := lua
+lua_package := lua5.2
 INSTALL_CMOD := $(shell pkg-config --variable=INSTALL_CMOD $(lua_package))
-ifeq ($(INSTALL_CMOD),)
-lua_package := lua5.1
-INSTALL_CMOD := $(shell pkg-config --variable=INSTALL_CMOD $(lua_package))
-endif
 
 ifeq ($(INSTALL_CMOD),)
 $(error Lua package not found)
